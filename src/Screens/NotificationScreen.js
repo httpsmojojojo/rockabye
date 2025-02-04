@@ -58,8 +58,7 @@ const NotificationScreen = ({navigation}) => {
                   </View>
                 </View>
                 <Text style={styles.description}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                New babysitter just joined check her out!
                 </Text>
               </View>
             </View>
@@ -91,9 +90,13 @@ const NotificationScreen = ({navigation}) => {
           <View
             style={{
               width: '100%',
+              height: '100%',
               marginTop: 20,
             }}>
-            <Image source={require('../Theme/Assests/BG.png')} />
+            <Image style={{
+        
+          resizeMode: 'contain', // Cover the entire View
+        }} source={require('../Theme/Assests/Notificationbg.png')} />
           </View>
         </ScrollView>
       </View>
@@ -151,6 +154,8 @@ const styles = StyleSheet.create({
   },
   cardDetails: {
     flex: 1,
+    textAlign: 'center',
+    
   },
   cardName: {
     fontSize: wp('4.5%'),
@@ -158,7 +163,7 @@ const styles = StyleSheet.create({
     color: black,
   },
   cardAge: {
-    fontSize: wp('4%'),
+    fontSize: wp('3%'),
     fontFamily: Regular,
     color: black,
   },
@@ -168,7 +173,7 @@ const styles = StyleSheet.create({
     marginTop: hp('1%'),
   },
   cardRating: {
-    fontSize: wp('4%'),
+    fontSize: wp('3%'),
     fontFamily: Regular,
     color: black,
     marginLeft: wp('2%'),
@@ -179,7 +184,7 @@ const styles = StyleSheet.create({
     marginTop: hp('1%'),
   },
   cardLocation: {
-    fontSize: wp('4%'),
+    fontSize: wp('3%'),
     fontFamily: Regular,
     color: black,
     marginLeft: wp('2%'),
@@ -191,10 +196,14 @@ const styles = StyleSheet.create({
     marginBottom: hp('1%'),
   },
   description: {
-    fontSize: wp('4%'),
+    fontSize: wp('3.5%'),
     fontFamily: Regular,
     color: black,
-    marginBottom: hp('3%'),
+    marginBottom: hp('1%'),
+    textAlign: 'center',
+    marginLeft: wp('2%'),
+    marginTop: hp('2%'),
+    
   },
 });
 

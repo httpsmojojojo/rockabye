@@ -22,6 +22,8 @@ import {
 import {Medium, Regular, SemiBold} from '../Stylings/Font.Family';
 import StarIcon from '../../assets/SvgIcons/StarIcon';
 import MapIcon from '../../assets/SvgIcons/MapIcon';
+import { Ionicons } from '@expo/vector-icons'; // ✅ Import Icon
+import BackIcon from '../../assets/SvgIcons/BackIcon';
 
 const PaymentScreen = () => {
   const paymentData = [
@@ -38,7 +40,7 @@ const PaymentScreen = () => {
       feePerHour: '40 NIS',
       overallPrice: '200 NIS',
       status: 'Tap to Pay',
-      backgroundColor: '#D2BAA3',
+      backgroundColor: '#CEEEE4',
     },
     {
       id: '2',
@@ -69,6 +71,21 @@ const PaymentScreen = () => {
       overallPrice: '225 NIS',
       status: 'Pending',
       backgroundColor: '#6488EA33',
+    },
+    {
+      id: '4',
+      profileImage: require('../Theme/Assests/profile.png'),
+      name: 'Emily Davis',
+      age: 25,
+      rating: '5.00',
+      reviews: 200,
+      location: 'Los Angeles, USA',
+      arrivedDate: '7/3/2024',
+      time: '10:00 - 15:00',
+      feePerHour: '45 NIS',
+      overallPrice: '225 NIS',
+      status: 'Pending',
+      backgroundColor: '#D2BAA3',
     },
   ];
 
@@ -113,11 +130,31 @@ const PaymentScreen = () => {
           <Text style={styles.payButtonText}>Tap to Pay</Text>
         </TouchableOpacity>
       )}
+
       {item.status === 'Payment Failed' && (
+        <>
+        <View > 
         <Text style={styles.failedText}>
-          Payment Failed. Please contact customer support.
+          Payment Failed:
         </Text>
+
+        <TouchableOpacity
+          style={[styles.payButton, {backgroundColor: item.buttonColor,}]}>
+          <Text style={
+            {
+              fontSize: wp('3%'),
+              fontFamily: 'small',
+              color: black,
+              textAlign: 'center',
+            }
+          }>Contact app support </Text>
+        </TouchableOpacity>
+
+        </View>
+</>
       )}
+
+
       {item.status === 'Pending' && (
         <Text style={styles.pendingText}>
           Payment has been accepted by the sitter.
@@ -131,18 +168,34 @@ const PaymentScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Payments</Text>
-      <FlatList
-        data={paymentData}
-        renderItem={renderPaymentCard}
-        keyExtractor={item => item.id}
-        contentContainerStyle={styles.listContainer}
-      />
+<View style={styles.header}>
+  <TouchableOpacity>
+    <BackIcon />
+  </TouchableOpacity>
+
+  <Text style={styles.title}>Payments</Text>
+</View>
+<FlatList
+    data={paymentData}
+    renderItem={renderPaymentCard}
+    keyExtractor={item => item.id}
+    contentContainerStyle={styles.listContainer}
+    ListFooterComponent={<View style={{ height: 50 }} />} // ✅ Extra spacing at the bottom
+    showsVerticalScrollIndicator={false} // ✅ Hide scroll bar (optional)
+  />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  header: {
+    flexDirection: 'row',  
+    alignItems: 'center',
+    gap: 15,               
+    paddingHorizontal: 20, 
+    paddingVertical: 15,
+  },
+
   container: {
     flex: 1,
     backgroundColor: white,
@@ -155,11 +208,13 @@ const styles = StyleSheet.create({
     marginVertical: hp('2%'),
   },
   listContainer: {
-    paddingHorizontal: wp('5%'),
+    paddingHorizontal: wp('4%'),
+    paddingVertical: hp('1%'),
+   
   },
   card: {
     borderRadius: 10,
-    padding: wp('4%'),
+    padding: wp('2%'),
     marginBottom: hp('2%'),
     flexDirection:'row',
     alignItems:"flex-start",
@@ -168,7 +223,7 @@ const styles = StyleSheet.create({
   cardRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: hp('1%'),
+    marginBottom: hp('0.5%'),
   },
   profileImage: {
     width: wp('12%'),
@@ -208,23 +263,28 @@ const styles = StyleSheet.create({
   },
   payButton: {
     backgroundColor: primary,
-    paddingVertical: hp('1%'),
-    borderRadius: 8,
+    borderRadius: wp('5%'),
     alignItems: 'center',
-    justifyContent: "center",
-    elevation: 16, // Android shadow
-    shadowColor: '#00000040', // iOS shadow color
-    shadowOffset: { width: 0, height: 2 }, // iOS shadow offset
-    shadowOpacity: 0.25, // iOS shadow opacity
-    shadowRadius: 4, // iOS shadow blur
-    borderColor: '#00000040',
-    borderWidth:1
-}
-,
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    textAlign: 'center',
+    shadowRadius: 3.84,
+    elevation: 5,
+    height: hp('5%'),
+  
+  
+    }
+  ,
   payButtonText: {
     fontSize: wp('3%'),
     fontFamily: Medium,
-    color: white,
+    color: black,
+    textAlign: 'center',
   },
   failedText: {
     width:wp('30%'),

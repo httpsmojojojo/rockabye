@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: black,
     borderRadius: 8,
-    backgroundColor: dark_grey,
+    backgroundColor: '#dae1f2',
     marginBottom: hp('2%'),
   },
   dropdownText: {

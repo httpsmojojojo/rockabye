@@ -17,9 +17,10 @@ import { Medium, Regular, SemiBold } from '../Stylings/Font.Family';
 import MapIcon from '../../assets/SvgIcons/MapIcon';
 import WalletIcon from '../../assets/SvgIcons/WalletIcon';
 import KeyIcon from '../../assets/SvgIcons/KeyIcon';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const ScheduleScreen = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
+
   const [currentWeek, setCurrentWeek] = useState(0); // Tracks the current week's index
   const [currentMonth, setCurrentMonth] = useState("November 2024"); // Example month and year
 
@@ -28,7 +29,7 @@ const ScheduleScreen = () => {
     ['27', '28', '29', '30', '1', '2', '3'], // Week 1
     ['4', '5', '6', '7', '8', '9', '10'], // Week 2
   ];
-
+  const [selectedDate, setSelectedDate] = useState(weeks[0][1]);
   const handleDatePress = (date) => {
     setSelectedDate(date);
   };
@@ -59,7 +60,7 @@ const ScheduleScreen = () => {
             style={styles.profileImage}
           />
           <View style={styles.profileDetails}>
-            <Text style={styles.greeting}>Good Morning</Text>
+            <Text style={styles.greeting}>Good Morning !</Text>
             <Text style={styles.name}>Erin Dowart</Text>
           </View>
           <View style={styles.roundButtonsRow}>
@@ -77,10 +78,13 @@ const ScheduleScreen = () => {
       <View style={styles.header}>
         <TouchableOpacity onPress={handlePreviousWeek}>
           {/* <ArrowLeftIcon /> */}
+          <Ionicons name="chevron-back" size={24} color="black" />
         </TouchableOpacity>
         <Text style={styles.monthText}>{currentMonth}</Text>
         <TouchableOpacity onPress={handleNextWeek}>
           {/* <ArrowRightIcon /> */}
+          <Ionicons name="chevron-forward" size={24} color="black" />
+
         </TouchableOpacity>
       </View>
 
@@ -123,25 +127,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginTop: hp('7%'),
     padding: wp('5%'),
-    height: hp('15%'), // Set explicit height for the image row
   },
   profileImage: {
     width: wp('15%'),
     height: wp('15%'),
     borderRadius: wp('7.5%'),
+    borderColor: '#51CC56',
+    borderWidth: 1.5,
   },
   profileDetails: {
     flex: 1,
     marginLeft: wp('3%'),
   },
   greeting: {
-    fontSize: wp('4%'),
+    fontSize: wp('3.5%'),
     fontFamily: Regular,
     color: black,
   },
   name: {
-    fontSize: wp('5%'),
+    fontSize: wp('6%'),
     fontFamily: SemiBold,
     color: black,
   },
@@ -177,8 +183,9 @@ const styles = StyleSheet.create({
   },
   dateButton: {
     backgroundColor: white,
-    
-    padding: wp('3%'),
+    width: wp('10%'),  
+    height: wp('10%'), 
+    padding: wp('2%'),
     marginHorizontal: wp('2%'),
     justifyContent: 'center',
     alignItems: 'center',
@@ -186,12 +193,12 @@ const styles = StyleSheet.create({
 
   },
   activeDateButton: {
-    backgroundColor: primary,
+    backgroundColor: '#624b99',
   },
   dateText: {
     fontSize: wp('4%'),
     fontFamily: Medium,
-    color: black,
+    color: 'black',
   },
   activeDateText: {
     color: white,

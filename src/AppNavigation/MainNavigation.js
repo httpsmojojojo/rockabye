@@ -6,6 +6,7 @@ import SitterScreen from '../Screens/ForSitterScreen';
 import Tab_Navigation from './BotttomNavigation';
 import SignupScreen from '../Screens/SignupScreen';
 import NotificationScreen from '../Screens/NotificationScreen';
+import BookSitterScreen from '../Screens/BookSitterScreen';
 
 const MainNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -19,6 +20,8 @@ const MainNavigation = () => {
         <Stack.Screen component={Tab_Navigation} name="Tab_Navigation" />
         <Stack.Screen component={SignupScreen} name="SignupScreen" />
         <Stack.Screen component={NotificationScreen} name="NotificationScreen" />
+        <Stack.Screen component={BookSitterScreen} name="BookSitterScreen" />
+
 
 
 

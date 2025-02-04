@@ -22,7 +22,7 @@ const ProfileScreen = ({navigation}) => {
       id: '1',
       title: 'Account',
       icon: 'account-circle',
-      onClick: () => navigation.navigate('NotificationScreen'),
+      onClick: () => navigation.navigate('SignupScreen'),
     },
     {id: '2', title: 'Notifications', icon: 'notifications',
       onClick: () => navigation.navigate('NotificationScreen'),
@@ -30,7 +30,7 @@ const ProfileScreen = ({navigation}) => {
 
     },
     {id: '3', title: 'Appearance', icon: 'color-lens',
-      onClick: () => navigation.navigate('NotificationScreen'),
+      onClick: () => navigation.navigate('BookSitterScreen'),
 
     },
     {id: '4', title: 'Privacy Policy', icon: 'lock',
@@ -56,7 +56,7 @@ const ProfileScreen = ({navigation}) => {
       {/* Profile Header */}
       <View style={styles.header}>
         <Image
-          source={require('../Theme/Assests/profile.png')} // Replace with your profile image path
+          source={require('../Theme/Assests/profile.png')}
           style={styles.profileImage}
         />
         <Text style={styles.profileName}>Erin Dowart</Text>

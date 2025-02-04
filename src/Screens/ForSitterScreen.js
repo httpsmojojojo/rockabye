@@ -32,12 +32,14 @@ const SitterScreen = ({navigation}) => {
       {/* Background Image Section */}
       <ImageBackground
         source={require('../Theme/Assests/BG.png')}
-        style={{width: wp('100%'), height: hp('30%')}} // Ensure it takes full width and set a specific height.
+        style={{width: wp('100%'), height: hp('40%')}} // Ensure it takes full width and set a specific height.
         resizeMode="cover" // Change to "cover" to make the image cover the entire container
       >
         <TouchableOpacity style={styles.backButton}>
           <BackIcon />
         </TouchableOpacity>
+
+
         <View style={styles.imageContentContainer}>
           <Text style={styles.title}>Plan an introductory meeting</Text>
         </View>
@@ -70,12 +72,14 @@ const SitterScreen = ({navigation}) => {
         {/* Video call options */}
         <Text style={styles.subtitle}>Want to meet via video call?</Text>
 
-        <View style={styles.checkboxRow}>
-          <View>
-            <CheckBox value={isChecked} onValueChange={setIsChecked} />
-          </View>
-          <Text style={styles.checkboxLabel}>Meet via video call</Text>
-        </View>
+        <View style={[styles.checkboxRow, styles.checkboxShadow]}>
+      <CheckBox
+        status={isChecked ? 'checked' : 'unchecked'}
+        onPress={() => setIsChecked(!isChecked)}
+        color="#007AFF"
+      />
+      <Text style={styles.checkboxLabel}>Meet via video call</Text>
+    </View>
 
         {/* Button */}
         <TouchableOpacity
@@ -102,25 +106,25 @@ const styles = StyleSheet.create({
     padding: wp('5%'),
   },
   title: {
-    fontSize: wp('6%'),
-    fontFamily: SemiBold,
+    fontSize: wp('7%'),
+    fontFamily: 'Medium',
     color: black,
     width: wp('70%'),
     textAlign: 'center',
-    bottom: hp('4%'),
+    bottom: hp('3%'),
   },
 
   contentContainer: {
     flex: 2, // Reduced flex to adjust content below the image
     width: '100%',
     paddingHorizontal: wp('5%'),
-    paddingTop: hp('3%'),
+    paddingTop: hp('7%'),
   },
   subtitle: {
     fontSize: wp('4.5%'),
     fontFamily: Regular,
     color: black,
-    marginBottom: hp('2%'),
+    marginBottom: hp('3%'),
   },
   dropdownRow: {
     flexDirection: 'row',
@@ -132,11 +136,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     width: wp('28%'),
-    padding: wp('2%'),
-    borderWidth: 1,
-    borderColor: black,
+    padding: wp('3%'),
+    // borderWidth: 1,
+    // borderColor: black,
     borderRadius: 8,
-    backgroundColor: dark_grey,
+    backgroundColor: '#dae1f2',
   },
   dropdownText: {
     fontSize: wp('3.5%'),
@@ -146,6 +150,7 @@ const styles = StyleSheet.create({
   checkboxRow: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: hp('4%'),
     alignSelf: 'center',
   },
@@ -157,15 +162,21 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '100%',
-    paddingVertical: hp('0.6%'),
+    paddingVertical: hp('0.3%'),
     backgroundColor: '#D2BAA380',
-    borderRadius: 8,
+    borderRadius: 30,
     alignItems: 'center',
+    textAlign: 'center',
+    justifyContent: 'center',
   },
   buttonText: {
     fontSize: wp('3.5%'),
     fontFamily: SemiBold,
     color: black,
+    textAlign:'center',
+    
+    textAlignVertical: 'center',
+   
   },
 });
 

@@ -24,7 +24,7 @@ function HistoryICon(props) {
           />
         </ClipPath>
       </Defs>
-    </Svg>
+     </Svg>
   )
 }
 

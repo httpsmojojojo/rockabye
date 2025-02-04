@@ -16,6 +16,7 @@ import ScheduleScreen from '../Screens/ScheduleScreen';
 import ClientScreen from '../Screens/ExploreScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
 import PaymentScreen from '../Screens/PaymentScreen';
+import CalenderIcon from '../../assets/SvgIcons/CalenderIcon';
 
 
 const Tab = createBottomTabNavigator();
@@ -66,11 +67,17 @@ const CustomTabBar = ({ state, navigation }) => {
               onPress={() => navigation.navigate(name)}
             >
               <View style={styles.tabContent}>
-                <TabIcon name={name} focused={isFocused} />
-                {isFocused && (
-                  <Text style={styles.activeTabText}>{name==='ClientScreen'?'Explore':name==='ProfileScreen'?'Profile':name==='PaymentScreen'?'History':name}</Text>
-                )}
-              </View>
+  <TabIcon name={name} focused={isFocused} />
+  <Text style={[
+    styles.tabText,
+    isFocused ? styles.activeTabText : styles.inactiveTabText
+  ]}>
+    {name === 'ClientScreen' ? 'Explore' 
+      : name === 'ProfileScreen' ? 'Profile'
+      : name === 'PaymentScreen' ? 'History'
+      : name}
+  </Text>
+</View>
             </TouchableOpacity>
           );
         })}
@@ -82,11 +89,11 @@ const CustomTabBar = ({ state, navigation }) => {
 const TabIcon = ({ name, focused }) => {
   switch (name) {
     case 'Home':
-      return <HomeIcon color={focused ? primary : white} />;
+      return <HomeIcon color={focused ? primary : black} />;
     case 'PaymentScreen':
       return <HistoryICon color={focused ? primary : white} />;
     case 'Schedule':
-      return <ProfileIcon color={focused ? primary : white} />;
+      return <CalenderIcon  />;
     case 'ClientScreen':
       return <ExploreIcon color={focused ? primary : white} />;
     case 'ProfileScreen':
@@ -129,14 +136,19 @@ const styles = StyleSheet.create({
   },
   activeTab: {
     elevation: 5,
+   
+  },
+  inactiveTabText: {
+    color: '#9E9E9E',  
+    fontSize: wp('3.5%'),
   },
   tabContent: {
     alignItems: 'center',
     justifyContent: 'center',
   },
   activeTabText: {
-    color: primary,
-    fontSize: wp('3.5%'),
+    color: black,
+    fontSize: wp('4%'),
     fontFamily: SemiBold,
   },
 });

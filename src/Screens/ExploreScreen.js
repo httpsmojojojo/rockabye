@@ -36,7 +36,7 @@ const ClientScreen = (navigation) => {
               style={styles.profileImage}
             />
             <View style={styles.profileDetails}>
-              <Text style={styles.greeting}>Good Morning</Text>
+              <Text style={styles.greeting}>Good Morning !</Text>
               <Text style={styles.name}>Erin Dowart</Text>
             </View>
             <View style={styles.roundButtonsRow}>
@@ -97,6 +97,8 @@ const ClientScreen = (navigation) => {
             </View>
 
             {/* Availability Grid */}
+
+
             <View style={styles.availabilityGrid}>
               {['Morning', 'Mid Day', 'Afternoon', 'Evening', 'Night'].map(
                 (shift, index) => (
@@ -127,6 +129,10 @@ const ClientScreen = (navigation) => {
                 ),
               )}
             </View>
+
+
+
+
           </View>
         </View>
       </ScrollView>
@@ -150,18 +156,20 @@ const styles = StyleSheet.create({
     width: wp('15%'),
     height: wp('15%'),
     borderRadius: wp('7.5%'),
+    borderColor: '#51CC56',
+    borderWidth: 1.5,
   },
   profileDetails: {
     flex: 1,
     marginLeft: wp('3%'),
   },
   greeting: {
-    fontSize: wp('4%'),
+    fontSize: wp('3.5%'),
     fontFamily: Regular,
     color: black,
   },
   name: {
-    fontSize: wp('5%'),
+    fontSize: wp('6%'),
     fontFamily: SemiBold,
     color: black,
   },
@@ -193,16 +201,19 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowOffset: {width: 0, height: 2},
     shadowRadius: 4,
+    borderColor: '#91a9eb',
+    borderWidth: 2,
   },
   cardRow: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   cardProfileImage: {
-    width: wp('15%'),
-    height: wp('15%'),
+    width: wp('20%'),
+    height: wp('20%'),
     borderRadius: wp('7.5%'),
     marginRight: wp('3%'),
+   
   },
   cardDetails: {
     flex: 1,
@@ -255,9 +266,9 @@ const styles = StyleSheet.create({
     width: '40%',
     backgroundColor: '#6488EA33',
     borderColor: '#6488EA33',
-    borderRadius: wp('10%'),
+    borderRadius: wp('20%'),
     alignItems: 'center',
-    marginBottom: hp('3%'),
+   
     borderWidth: 8,
     borderColor: '#6488EA33',
     alignSelf: 'flex-end',
@@ -270,14 +281,16 @@ const styles = StyleSheet.create({
   availabilityContainer: {
     borderWidth: 1,
     borderColor: '#6488EA33',
-    borderRadius: 8,
-    padding: wp('2%'),
-    marginBottom: hp('3%'),
+    borderRadius:wp('3%'),
+    padding: wp('3%'),
+    marginBottom: hp('0%'),
   },
   availabilityHeaderRow: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: hp('2%'),
+  
+   
   },
   availabilityHeader: {
     fontSize: wp('3%'),
@@ -298,11 +311,13 @@ const styles = StyleSheet.create({
   },
   availabilityGrid: {
     flexDirection: 'column',
+    marginBottom: hp('5%'),
   },
   availabilityRow: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: hp('1%'),
+
   },
   shiftLabel: {
     fontSize: wp('2.4%'),
@@ -316,8 +331,8 @@ const styles = StyleSheet.create({
     height: wp('10%'),
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: wp('0.5%'),
-    borderWidth: 1, // Border on all sides
+    marginHorizontal: wp('0%'),
+    borderWidth: 1,
   },
 });
 

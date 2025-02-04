@@ -13,7 +13,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {black, dark_grey, primary, white} from '../Stylings/Colors';
+import {black, blue, dark_grey, primary, white} from '../Stylings/Colors';
 import {Medium, Regular, SemiBold} from '../Stylings/Font.Family';
 import BackgroundImageComponent from '../Components/ImageBackgroundComponent';
 import MapIcon from '../../assets/SvgIcons/MapIcon';
@@ -38,7 +38,7 @@ const HomeScreen = () => {
               style={styles.profileImage}
             />
             <View style={styles.profileDetails}>
-              <Text style={styles.greeting}>Good Morning</Text>
+              <Text style={styles.greeting}>Good Morning !</Text>
               <Text style={styles.name}>Erin Dowart</Text>
             </View>
             <View style={styles.roundButtonsRow}>
@@ -115,24 +115,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginTop: hp('7%'),
     padding: wp('5%'),
   },
   profileImage: {
     width: wp('15%'),
     height: wp('15%'),
     borderRadius: wp('7.5%'),
+    borderColor: '#51CC56',
+    borderWidth: 1.5,
   },
   profileDetails: {
     flex: 1,
     marginLeft: wp('3%'),
   },
   greeting: {
-    fontSize: wp('4%'),
+    fontSize: wp('3.5%'),
     fontFamily: Regular,
     color: black,
   },
   name: {
-    fontSize: wp('5%'),
+    fontSize: wp('6%'),
     fontFamily: SemiBold,
     color: black,
   },
@@ -154,22 +157,23 @@ const styles = StyleSheet.create({
     padding: wp('4%'),
     paddingVertical: hp('10%'),
     margin: wp('5%'),
-    borderRadius: 10,
+   borderColor: '#91a9eb',
+    borderWidth: 2,
     shadowColor: black,
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.5,
     shadowOffset: {width: 0, height: 2},
     shadowRadius: 5,
   },
   contentContainer: {
     paddingHorizontal: wp('5%'),
     paddingVertical: hp('2%'),
-    borderRadius: 10,
+  
     elevation: 5,
     shadowColor: black,
     shadowOpacity: 0.2,
     shadowOffset: {width: 0, height: 2},
     shadowRadius: 5,
-    backgroundColor: white,
+    backgroundColor: '#F8F8F8',
     marginHorizontal: wp('5%'),
   },
   sectionTitle: {
@@ -180,7 +184,7 @@ const styles = StyleSheet.create({
   },
   activityCard: {
     flexDirection: 'row',
-    backgroundColor: white,
+    backgroundColor: '#F8F8F8',
     padding: wp('4%'),
 
     marginBottom: hp('2%'),
@@ -193,6 +197,9 @@ const styles = StyleSheet.create({
   },
   activityTitle: {
     fontSize: wp('4%'),
+    position: 'absolute',  
+    top: 10,               
+    left: 15,   
     fontFamily: Medium,
     color: black,
   },
@@ -205,19 +212,20 @@ const styles = StyleSheet.create({
   activityTitleUnderline: {
     fontSize: wp('4%'),
     fontFamily: Medium,
-    color: '#898A8D',
+    color: black,
     opacity: 0.5,
   },
   activitySubtitleUnderline: {
     fontSize: wp('3.5%'),
     fontFamily: Regular,
-    color: '898A8D',
+    color: '#898A8D',
+    
     opacity: 0.5,
   },
   activityCount: {
     fontSize: wp('5%'),
     fontFamily: SemiBold,
-    color: primary,
+    color: black,
     textAlign: 'center',
   },
 });

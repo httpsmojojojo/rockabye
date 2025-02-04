@@ -282,14 +282,14 @@ const styles = StyleSheet.create({
     marginBottom: hp('2%'),
   },
   radioButtonText: {
-    fontSize: wp('4%'),
+    fontSize: wp('3.5%'),
     fontFamily: Regular,
     color: black,
     marginLeft: wp('2%'),
   },
   signUpButton: {
-    backgroundColor: primary,
-    paddingVertical: hp('2%'),
+    backgroundColor: '#6488EA',
+    paddingVertical: hp('1%'),
     borderRadius: wp('5%'),
     alignItems: 'center',
   },
